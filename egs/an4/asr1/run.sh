@@ -34,7 +34,7 @@ lm_resume=          # specify a snapshot file to resume LM training
 recog_model=model.loss.best # set a model to be used for decoding: 'model.acc.best' or 'model.loss.best'
 
 # data
-datadir=./downloads
+datadir=/content/espnet/egs/an4/asr1/downloads
 an4_root=${datadir}/an4
 data_url=http://www.speech.cs.cmu.edu/databases/an4/
 
