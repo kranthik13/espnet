@@ -58,7 +58,8 @@ for x in ["train", "test"]:
             wav_scp_f.write(
                 utt_id
                 + " "
-                + sph2pipe
+                # + sph2pipe
+                + "/content/espnet/tools/kaldi/tools/sph2pipe/sph2pipe"
                 + " -f wav -p -c 1 "
                 + os.path.join(an4_root, "wav", sph_dir[x], mid, source + ".sph")
                 + " |\n"
