@@ -975,7 +975,7 @@ def recog(args):
             rnnlm.cuda()
 
     # read json data
-    with open(args.recog_json, "rb") as f:
+    with open(args.recog_json, "r") as f:  # "rb"
 
         content = f.read()
         if content.startswith(
@@ -986,8 +986,7 @@ def recog(args):
             train_json = json.loads(content)  # json.load(f)["utts"]
 
         js = train_json  # json.load(f)["utts"]
-
-        # js = json.load(f)["utts"]
+    
     new_js = {}
 
     load_inputs_and_targets = LoadInputsAndTargets(
@@ -1187,7 +1186,7 @@ def enhance(args):
         model.cuda()
 
     # read json data
-    with open(args.recog_json, "rb") as f:
+    with open(args.recog_json, "r") as f:  # rb
 
         content = f.read()
         if content.startswith(
@@ -1195,7 +1194,7 @@ def enhance(args):
             train_json = json.loads(content[110:])[
                 "utts"]  # 110 is the number of characters for the above WARNING LINE.
         else:
-            train_json = json.loads(content) # json.load(f)["utts"]
+            train_json = json.loads(content)  # json.load(f)["utts"]
 
         js = train_json  # json.load(f)["utts"]
 

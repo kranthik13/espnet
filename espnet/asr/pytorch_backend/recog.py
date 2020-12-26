@@ -125,9 +125,7 @@ def recog_v2(args):
     beam_search.to(device=device, dtype=dtype).eval()
 
     # read json data
-    # with open(args.recog_json, "rb") as f:
-    #     js = json.load(f)["utts"]
-    with open(args.recog_json, "rb") as f:
+    with open(args.recog_json, "r") as f:  # "rb"
 
         content = f.read()
         if content.startswith(
@@ -135,7 +133,7 @@ def recog_v2(args):
             train_json = json.loads(content[110:])[
                 "utts"]  # 110 is the number of characters for the above WARNING LINE.
         else:
-            train_json = json.loads(content) # json.load(f)["utts"]
+            train_json = json.loads(content)  # json.load(f)["utts"]
 
         js = train_json  # json.load(f)["utts"]
 
