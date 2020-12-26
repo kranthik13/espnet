@@ -125,8 +125,20 @@ def recog_v2(args):
     beam_search.to(device=device, dtype=dtype).eval()
 
     # read json data
+    # with open(args.recog_json, "rb") as f:
+    #     js = json.load(f)["utts"]
     with open(args.recog_json, "rb") as f:
-        js = json.load(f)["utts"]
+
+        content = f.read()
+        if content.startswith(
+                "Warning! You haven't set Python environment yet. Go to /content/espnet/tools and generate 'activate_python.sh'"):
+            train_json = json.loads(content[110:])[
+                "utts"]  # 110 is the number of characters for the above WARNING LINE.
+        else:
+            train_json = json.loads(content) # json.load(f)["utts"]
+
+        js = train_json  # json.load(f)["utts"]
+
     new_js = {}
     with torch.no_grad():
         for idx, name in enumerate(js.keys(), 1):
