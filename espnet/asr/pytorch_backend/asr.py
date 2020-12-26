@@ -986,7 +986,7 @@ def recog(args):
             train_json = json.loads(content)  # json.load(f)["utts"]
 
         js = train_json  # json.load(f)["utts"]
-    
+
     new_js = {}
 
     load_inputs_and_targets = LoadInputsAndTargets(
