@@ -133,7 +133,7 @@ def recog_v2(args):
             train_json = json.loads(content[110:])[
                 "utts"]  # 110 is the number of characters for the above WARNING LINE.
         else:
-            train_json = json.loads(content)  # json.load(f)["utts"]
+            train_json = json.loads(content)["utts"]  # json.load(f)["utts"]
 
         js = train_json  # json.load(f)["utts"]
 
